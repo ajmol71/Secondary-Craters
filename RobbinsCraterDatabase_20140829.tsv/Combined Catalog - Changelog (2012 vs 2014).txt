@@ -1,0 +1,33 @@
+This is "Version 2" of the Robbins and Hynek global Martian crater database, considered complete for Martian impact craters with diameters D ≥ 1 km.  Release date 30 August, 2014.  This document summarizes changes between this version and the original, released in December 2012.
+
+
+***** PLEASE CONTACT ROBBINS (STUART@SJRDESIGN.NET) FOR ANY QUESTIONS, PROBLEMS, OR CORRECTIONS TO BE INCLUDED IN FUTURE VERSIONS *****
+
+
+1. Updated crater latitude, longitude, diameter, and ellipse properties for all image-based columns.  The original catalog used a simple cos(latitude) correction to project rim vertex points from decimal degrees into kilometers from the crater center.  This revision uses Great Circles (via Vincenty's formulae (Vincenty, 1975)) for that projection, so it should be more accurate.  It assumed a spherical Mars with a semi-major axis of 3396 (the same as the original database).
+
+2. Secondary crater classifications are included ("SECONDARY" column).  This is based on the Robbins and Hynek (2014) paper in EPSL, "The Secondary Crater Population of Mars."  There are two important caveats to using this column.  First, it is a conservative estimate.  Craters that may be secondary but do not display "obvious" secondary morphologies were certainly missed.  Second, smaller craters (D ~ 1 km) are likely reasonable as a population, but there will almost certainly be individual errors.  This is due to the method with which the craters were classified — see Robbins and Hynek (2014) for more information.  In other words, use this column as a guide, but for craters smaller than D ~ 5 km, if knowing whether a certain crater is secondary or primary, you should do your own investigation.
+
+3. Crater IDs ("CRATER_ID") have changed.  There has always been an internal ID used, but in the original release, this was removed in favor of sorting craters into sub quads and assigning an ID based on the diameter within the sub quad.  The problem with this system is that any additions or deletions to the database necessarily changes the ID, which is not useful across versions.  Ergo, this version retains the original, internally used Crater ID in the "CRATER_ID" column.  All correspondence about individual craters to the authors should reference that ID.
+
+4. There was some confusion after the release of the previous catalog on the data included for craters D < 3 km.  A few D < 3 km craters had morphology classifications and depth calculations for those craters, but they are not complete and the depth calculations are likely off by factors of 10s% (see Robbins and Hynek, 2013).  Because of this, all D < 3 km morphology (ejecta and interior) and depth have been removed from this version for clarity of use.
+
+5. Updated IAU crater names.  The original catalog included official IAU names assigned through September 29, 2011.  This revision includes names approved through April 30, 2014 (Istok).
+
+6. Small tweaks to the CONFIDENCE_IMPACT_CRATER column, changing some "4" classes to lower confidences.
+
+7. All references to "lobe" have been replaced by "layer".
+
+
+Not included in this update:
+
+1. The revised crater depths per Robbins and Hynek (2013).  These should be released in a future update, but they are not yet global in extent.  Interested persons may contact Robbins (stuart@sjrdesign.net) to obtain a copy of revised crater depths.
+
+
+Important Note on Terminology:
+
+1. This database uses a strict interpretation of the ejecta morphology classification described in Barlow et al. (2000).  In recent years, "DLE" or "double-layer ejecta" craters have come to mean a very specific type of morphology — two distinct morphologies of ejecta but not necessarily only two distinct stratigraphic layers.
+
+The outer morphology, in the new usage, refers to relatively smooth ejecta that is sinuous at its perimeter, and the inner morphology is much rougher with a more circular perimeter.  In this database, those would *generally* be referred to as DLEPC/DLERS craters.  The Planetary Crater Consortium, at the time of this release, is in the process of working to propose a revised classification scheme, but until that is released, this database will retain the strict interpretation of the Barlow et al. (2000) paper.
+
+*** If you want to study the particular morphology of "DLE" craters described above, you can NOT use this database's "DLE*" classifications to pull them out.  DLEPC/DLERS will likely capture most of them, but not all, since sometimes there were multiple layers of the "outer" morphology type, so it might be MLEPC/MLERS/MLERS in this database.  Caution is advised.  ***
